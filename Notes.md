@@ -1,59 +1,74 @@
-# Docker :
-Docker is a platform designed to help developers build, share and learn container app.
+# Docker Notes
 
-# Why Docker:
-1. Consistency across environment . 
-2. Isolation
-3. Scalability
+## What is Docker?
+Docker is a platform designed to help developers build, share, and run applications inside containers.
 
-# Docker Engine:
-This is the core component of Docker.
-Use for creating, learning , managing docker container.
+## Why Docker?
+1. **Consistency across environments:** Eliminates the "it works on my machine" problem.
+2. **Isolation:** Keeps applications and their dependencies separated.
+3. **Scalability:** Easily spin up or tear down multiple containers.
 
-# Docker Images:
-Lightweight, standalone, executable, software package includes everything needed to learn a software.
+## Docker Engine
+The core component of Docker used for creating, running, and managing docker containers.
 
--> Compnonets:
+---
+
+## Docker Images
+A lightweight, standalone, executable software package that includes everything needed to run an application.
+
+### Components:
 1. Base Image
 2. App Code
-3. Development
+3. Dependencies & Environment
 4. Metadata
 
--> Life-Cycle:
-1. Creation
-2. Storage
-3. Distribution
-4. Execution
+### Life-Cycle:
+1. **Creation** (Built from a Dockerfile)
+2. **Storage** (Saved locally)
+3. **Distribution** (Pushed to a registry)
+4. **Execution** (Run as a container)
 
-# Docker File:
-Content series of instructions used to build docker image.
+---
 
--> Components:
-1. Base Image
-2. labels
-3. Run commands
-4. Copy Files
-5. Env Variables
-6. work directory
-7. Expose Ports
-8. command
-9. volumn
-10. Arguments
+## Dockerfile
+A text file containing a series of sequential instructions used to build a Docker image.
 
+### Common Instructions/Components:
+1. `FROM` (Base Image)
+2. `LABEL` (Metadata)
+3. `RUN` (Execute commands during build)
+4. `COPY` / `ADD` (Copy files into container)
+5. `ENV` (Environment Variables)
+6. `WORKDIR` (Working Directory)
+7. `EXPOSE` (Network Ports)
+8. `CMD` / `ENTRYPOINT` (Default command on container start)
+9. `VOLUME` (Data persistence)
+10. `ARG` (Build-time arguments)
 
-# Docker Container:
-Image ---> (Examine) ----> instance -----> Container
+---
 
-# Registry:
-It's a service that stores and distribute Docker image.
-Acts as a repo where users can push, pull and manage docker image.
-for exmaple: Docker Hub
+## Docker Container
+The runtime instance of a Docker Image.
+`Image` ➔ `Run/Instantiate` ➔ `Container`
 
--> Components:
-1. Repo
-2. Tags
+---
 
--> Types:
-1. docker hub
-2. private regitry
-3. 3rd party registry
+## Container Registry
+A service that stores and distributes Docker images. It acts as a repository where users can push and pull images (e.g., Docker Hub).
+
+### Components:
+1. Repositories
+2. Tags (Versioning, e.g., `latest`, `v1.0`)
+
+### Types:
+1. Public Registry (Docker Hub)
+2. Private Registry (Self-hosted)
+3. 3rd Party Cloud Registry (AWS ECR, Google Artifact Registry)
+
+---
+
+## Essential Cheat Sheet Commands
+* `docker build -t image_name .` -> Build an image from a Dockerfile
+* `docker run -d -p 8080:80 image_name` -> Run a container in detached mode
+* `docker ps` -> List running containers
+* `docker stop container_id` -> Stop a running container
